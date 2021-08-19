@@ -6,7 +6,8 @@
           <v-row class="justify-center">
             <v-col cols="12" md="2">
               <v-text-field
-                v-model="duration"
+                :value="duration"
+                @keyup="$emit('change', 'duration', $event.target.value)"
                 label="Время"
                 suffix="мин."
                 required
@@ -16,7 +17,8 @@
 
             <v-col cols="12" md="2">
               <v-text-field
-                v-model="distance"
+                :value="distance"
+                @keyup="$emit('change', 'distance', $event.target.value)"
                 label="Расстояние"
                 suffix="км."
                 required
@@ -26,7 +28,8 @@
 
             <v-col cols="12" md="2">
               <v-text-field
-                v-model="wait"
+                :value="wait"
+                @keyup="$emit('change', 'wait', $event.target.value)"
                 label="Ожидание"
                 suffix="мин."
                 required
@@ -43,10 +46,10 @@
 <script>
 export default {
   name: "Inputs",
-  data: () => ({
-    duration: 30,
-    distance: 30,
-    wait: 10,
-  }),
+  props: {
+    duration: Number,
+    distance: Number,
+    wait: Number,
+  },
 };
 </script>

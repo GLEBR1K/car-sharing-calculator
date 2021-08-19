@@ -1,0 +1,61 @@
+{
+  "providers": [
+    {
+      "id":"anytime",
+      "name": "Anytime",
+      "tariffs": [
+        {
+          "id": "minutes",
+          "name": "Минутный",
+          "prices": {
+            "price": 0.00,
+            "duration": 0.31,
+            "distance": 0.00,
+            "wait": 0.09
+          },
+          "includes": {
+            "duration": 0,
+            "distance": 0,
+            "wait": 0
+          }
+        }
+      ]
+    },
+    {
+      "id":"hello",
+      "name": "Hello",
+      "tariffs": [
+        {
+          "id": "minutes",
+          "name": "Минутный",
+          "prices": {
+            "price": 0.00,
+            "duration": 0.33,
+            "distance": 0.00,
+            "wait": 0.08
+          },
+          "includes": {
+            "duration": 0,
+            "distance": 0,
+            "wait": 0
+          }
+        },
+        {
+          "id": "30minutes",
+          "name": "30 Минут",
+          "prices": {
+            "price": 3.90,
+            "duration": 0.33,
+            "distance": 0.29,
+            "wait": 0.08
+          },
+          "includes": {
+            "duration": 30,
+            "distance": 0,
+            "wait": 0
+          }
+        }
+      ]
+    }
+  ]
+}

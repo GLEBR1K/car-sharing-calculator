@@ -3,8 +3,19 @@
     <v-main>
       <v-container>
         <Header />
-        <Inputs />
-        <Table />
+        <Inputs
+          :duration="duration"
+          :distance="distance"
+          :wait="wait"
+          @change="onChange"
+        />
+        <Table
+          :duration="duration"
+          :distance="distance"
+          :wait="wait"
+          :tariffs="tariffs"
+          :results="results"
+        />
       </v-container>
     </v-main>
   </v-app>
@@ -21,6 +32,54 @@ export default {
     Header,
     Inputs,
     Table,
+  },
+  data: () => ({
+    duration: 30,
+    distance: 30,
+    wait: 10,
+    tariffs: null,
+  }),
+  mounted() {
+    fetch("/tariffs.json")
+      .then((data) => data.json())
+      .then((json) => (this.tariffs = json));
+  },
+  computed: {
+    results() {
+      var results = {};
+      var min = Number.MAX_VALUE;
+
+      if (this.tariffs) {
+        this.tariffs.providers.forEach((provider) => {
+          provider.tariffs.forEach((tariff) => {
+            var price = tariff.prices.price || 0;
+            var priceDuration = tariff.prices.duration || 0;
+            var priceDistance = tariff.prices.distance || 0;
+            var priceWait = tariff.prices.wait || 0;
+            var includesDuration = tariff.includes.duration || 0;
+            var includesDistance = tariff.includes.distance || 0;
+            var includesWait = tariff.includes.wait || 0;
+
+            var result =
+              price +
+              Math.max(0, this.duration - includesDuration) * priceDuration +
+              Math.max(0, this.distance - includesDistance) * priceDistance +
+              Math.max(0, this.wait - includesWait) * priceWait;
+
+            min = result < min ? result : min;
+            results[provider.id + ":" + tariff.id] = (result || 0).toFixed(2);
+          });
+        });
+      }
+
+      results[":min"] = min;
+      return results;
+    },
+  },
+  methods: {
+    onChange(key, value) {
+      this[key] = parseFloat(value) || null;
+    },
   },
 };
 </script>

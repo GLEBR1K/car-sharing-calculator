@@ -1,5 +1,5 @@
 <template>
-  <v-row dense>
+  <v-row dense v-if="tariffs">
     <v-col>
       <v-simple-table dense>
         <thead>
@@ -8,57 +8,50 @@
 
             <th>Цена</th>
 
-            <th>Минуты</th>
-            <th>Руб./Мин.</th>
+            <th>Время</th>
+            <th>руб./мин.</th>
 
-            <th>Километры</th>
-            <th>Руб./Км.</th>
+            <th>Расстояние</th>
+            <th>руб./км.</th>
 
-            <th>Минуты (ожидание)</th>
-            <th>Руб./Мин. (ожидание)</th>
+            <th>Ожидание</th>
+            <th>руб./мин.</th>
 
             <th>Сумма</th>
           </tr>
         </thead>
-        <tbody>
+
+        <tbody v-for="provider in tariffs.providers" :key="provider.id">
           <tr>
-            <td colspan="9" class="font-weight-black">Anytime</td>
-          </tr>
-          <tr>
-            <td>Минутный</td>
-
-            <td>–</td>
-
-            <td>–</td>
-            <td>0.31</td>
-
-            <td>–</td>
-            <td>–</td>
-
-            <td>–</td>
-            <td>0.09</td>
-
-            <td class="font-weight-bold green--text">10.20</td>
+            <td colspan="9" class="font-weight-black">
+              {{ provider.name }}
+            </td>
           </tr>
 
-          <tr>
-            <td colspan="9" class="font-weight-black">Hello</td>
-          </tr>
-          <tr>
-            <td>Минутный</td>
+          <tr v-for="tariff in provider.tariffs" :key="tariff.id">
+            <td>{{ tariff.name }}</td>
 
-            <td>–</td>
+            <td>{{ valueOrDefault(tariff.prices.price) }}</td>
 
-            <td>–</td>
-            <td>0.33</td>
+            <td>{{ valueOrDefault(tariff.includes.duration) }}</td>
+            <td>{{ valueOrDefault(tariff.prices.duration) }}</td>
 
-            <td>–</td>
-            <td>–</td>
+            <td>{{ valueOrDefault(tariff.includes.distance) }}</td>
+            <td>{{ valueOrDefault(tariff.prices.distance) }}</td>
 
-            <td>–</td>
-            <td>0.08</td>
+            <td>{{ valueOrDefault(tariff.includes.wait) }}</td>
+            <td>{{ valueOrDefault(tariff.prices.wait) }}</td>
 
-            <td class="font-weight-bold">10.70</td>
+            <td
+              class="font-weight-bold"
+              :class="{
+                'green--text': isMininalRange(
+                  results[provider.id + ':' + tariff.id]
+                ),
+              }"
+            >
+              {{ results[provider.id + ":" + tariff.id] }}
+            </td>
           </tr>
         </tbody>
       </v-simple-table>
@@ -69,5 +62,20 @@
 <script>
 export default {
   name: "Table",
+  props: {
+    duration: Number,
+    distance: Number,
+    wait: Number,
+    tariffs: Object,
+    results: Object,
+  },
+  methods: {
+    valueOrDefault(value) {
+      return value || "–";
+    },
+    isMininalRange(value) {
+      return value <= this.results[":min"] * 1.2;
+    },
+  },
 };
 </script>
