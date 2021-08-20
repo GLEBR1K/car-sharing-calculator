@@ -24,6 +24,7 @@
         <tbody v-for="provider in tariffs.providers" :key="provider.id">
           <tr>
             <td colspan="9" class="provider-row">
+              <img :src="provider.image" width="12" height="12" />
               <span class="font-weight-black">{{ provider.name }}</span>
               <span v-if="provider.website">
                 •
@@ -141,6 +142,10 @@ thead tr th {
 }
 .provider-row {
   border-top: thin solid map-get($material-light, "dividers");
+
+  img {
+    margin-right: 5px;
+  }
 }
 .border-left {
   border-left: thin solid map-get($material-light, "dividers");

@@ -7,6 +7,7 @@
         "title": "anytime.by",
         "url": "https://any-time.by"
       },
+      "image": "/anytime.png",
       "tariffs": [
         {
           "id": "min",
@@ -152,6 +153,7 @@
         "title": "hello.by",
         "url": "https://hello.by"
       },
+      "image": "/hello.png",
       "tariffs": [
         {
           "id": "min",
@@ -417,6 +419,7 @@
         "title": "vezuha.club",
         "url": "https://vezuha.club/"
       },
+      "image": "/vezuha.png",
       "tariffs": [
         {
           "id": "min",
@@ -577,6 +580,7 @@
         "title": "multik.by",
         "url": "https://multik.by/"
       },
+      "image": "/multik.png",
       "tariffs": [
         {
           "id": "min",
