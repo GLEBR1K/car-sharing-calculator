@@ -6,24 +6,24 @@
           <tr>
             <th>Тариф</th>
 
-            <th>Цена</th>
+            <th class="border-left">Цена</th>
 
-            <th>Время</th>
+            <th class="border-left">Время</th>
             <th>руб./мин.</th>
 
-            <th>Расстояние</th>
+            <th class="border-left">Расстояние</th>
             <th>руб./км.</th>
 
-            <th>Ожидание</th>
+            <th class="border-left">Ожидание</th>
             <th>руб./мин.</th>
 
-            <th>Сумма</th>
+            <th class="border-left">Сумма</th>
           </tr>
         </thead>
 
         <tbody v-for="provider in tariffs.providers" :key="provider.id">
           <tr>
-            <td colspan="9" class="font-weight-black">
+            <td colspan="9" class="provider-row font-weight-black">
               {{ provider.name }}
             </td>
           </tr>
@@ -33,25 +33,37 @@
               {{ tariff.name }}
             </td>
 
-            <td :class="colorize(provider, tariff, results)">
+            <td
+              class="border-left"
+              :class="colorize(provider, tariff, results)"
+            >
               {{ formatCurrency(tariff.prices.price) }}
             </td>
 
-            <td :class="colorize(provider, tariff, results)">
+            <td
+              class="border-left"
+              :class="colorize(provider, tariff, results)"
+            >
               {{ valueOrDefault(tariff.includes.duration) }}
             </td>
             <td :class="colorize(provider, tariff, results)">
               {{ formatCurrency(tariff.prices.duration) }}
             </td>
 
-            <td :class="colorize(provider, tariff, results)">
+            <td
+              class="border-left"
+              :class="colorize(provider, tariff, results)"
+            >
               {{ valueOrDefault(tariff.includes.distance) }}
             </td>
             <td :class="colorize(provider, tariff, results)">
               {{ formatCurrency(tariff.prices.distance) }}
             </td>
 
-            <td :class="colorize(provider, tariff, results)">
+            <td
+              class="border-left"
+              :class="colorize(provider, tariff, results)"
+            >
               {{ valueOrDefault(tariff.includes.wait) }}
             </td>
             <td :class="colorize(provider, tariff, results)">
@@ -59,7 +71,7 @@
             </td>
 
             <td
-              class="font-weight-bold"
+              class="border-left font-weight-bold"
               :class="colorize(provider, tariff, results)"
             >
               {{ formatCurrency(results[provider.id + ":" + tariff.id]) }}
@@ -95,7 +107,7 @@ export default {
       var result = results[provider.id + ":" + tariff.id];
 
       if (result == results["$min"]) {
-        return ["green", "lighten-4"];
+        return ["green", "lighten-5"];
       }
 
       if (result == results[provider.id + ":$min"]) {
@@ -107,3 +119,17 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+@import "~vuetify/src/styles/styles.sass";
+thead tr th {
+  border-top: thin solid map-get($material-light, "dividers");
+  border-bottom: none !important;
+}
+.provider-row {
+  border-top: thin solid map-get($material-light, "dividers");
+}
+.border-left {
+  border-left: thin solid map-get($material-light, "dividers");
+}
+</style>
