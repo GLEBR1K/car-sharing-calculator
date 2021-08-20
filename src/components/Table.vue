@@ -24,7 +24,7 @@
         <tbody v-for="provider in tariffs.providers" :key="provider.id">
           <tr>
             <td colspan="9" class="provider-row">
-              <img :src="provider.image" width="12" height="12" />
+              <img :src="PUBLIC_PATH + provider.image" width="12" height="12" />
               <span class="font-weight-black">{{ provider.name }}</span>
               <span v-if="provider.website">
                 •
@@ -94,6 +94,8 @@
 </template>
 
 <script>
+import vueConfig from "../../vue.config";
+
 export default {
   name: "Table",
   props: {
@@ -102,6 +104,9 @@ export default {
     wait: Number,
     tariffs: Object,
     results: Object,
+  },
+  created() {
+    this.PUBLIC_PATH = vueConfig.publicPath;
   },
   methods: {
     valueOrDefault(value) {
