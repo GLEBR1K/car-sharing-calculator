@@ -3,6 +3,10 @@
     {
       "id": "anytime",
       "name": "Anytime",
+      "website": {
+        "title": "anytime.by",
+        "url": "https://any-time.by"
+      },
       "tariffs": [
         {
           "id": "min",
@@ -144,6 +148,10 @@
     {
       "id": "hello",
       "name": "Hello",
+      "website": {
+        "title": "hello.by",
+        "url": "https://hello.by"
+      },
       "tariffs": [
         {
           "id": "min",
@@ -405,6 +413,10 @@
     {
       "id": "vezuha",
       "name": "Везуха",
+      "website": {
+        "title": "vezuha.club",
+        "url": "https://vezuha.club/"
+      },
       "tariffs": [
         {
           "id": "min",
@@ -561,6 +573,10 @@
     {
       "id": "multimotors",
       "name": "Мультимоторс",
+      "website": {
+        "title": "multik.by",
+        "url": "https://multik.by/"
+      },
       "tariffs": [
         {
           "id": "min",

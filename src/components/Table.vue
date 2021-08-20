@@ -23,8 +23,17 @@
 
         <tbody v-for="provider in tariffs.providers" :key="provider.id">
           <tr>
-            <td colspan="9" class="provider-row font-weight-black">
-              {{ provider.name }}
+            <td colspan="9" class="provider-row">
+              <span class="font-weight-black">{{ provider.name }}</span>
+              <span v-if="provider.website">
+                •
+                <a
+                  class="text-decoration-none"
+                  :href="provider.website.url"
+                  target="_blank"
+                  >{{ provider.website.title }}</a
+                >
+              </span>
             </td>
           </tr>
 
