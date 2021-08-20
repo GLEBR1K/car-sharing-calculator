@@ -115,6 +115,10 @@ export default {
     colorize(provider, tariff, results) {
       var result = results[provider.id + ":" + tariff.id];
 
+      if (result == 0) {
+        return;
+      }
+
       if (result == results["$min"]) {
         return ["green", "lighten-5"];
       }
@@ -123,7 +127,7 @@ export default {
         return ["light-blue", "lighten-5"];
       }
 
-      return {};
+      return;
     },
   },
 };
