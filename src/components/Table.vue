@@ -29,29 +29,40 @@
           </tr>
 
           <tr v-for="tariff in provider.tariffs" :key="tariff.id">
-            <td>{{ tariff.name }}</td>
+            <td :class="colorize(provider, tariff, results)">
+              {{ tariff.name }}
+            </td>
 
-            <td>{{ valueOrDefault(tariff.prices.price) }}</td>
+            <td :class="colorize(provider, tariff, results)">
+              {{ formatCurrency(tariff.prices.price) }}
+            </td>
 
-            <td>{{ valueOrDefault(tariff.includes.duration) }}</td>
-            <td>{{ valueOrDefault(tariff.prices.duration) }}</td>
+            <td :class="colorize(provider, tariff, results)">
+              {{ valueOrDefault(tariff.includes.duration) }}
+            </td>
+            <td :class="colorize(provider, tariff, results)">
+              {{ formatCurrency(tariff.prices.duration) }}
+            </td>
 
-            <td>{{ valueOrDefault(tariff.includes.distance) }}</td>
-            <td>{{ valueOrDefault(tariff.prices.distance) }}</td>
+            <td :class="colorize(provider, tariff, results)">
+              {{ valueOrDefault(tariff.includes.distance) }}
+            </td>
+            <td :class="colorize(provider, tariff, results)">
+              {{ formatCurrency(tariff.prices.distance) }}
+            </td>
 
-            <td>{{ valueOrDefault(tariff.includes.wait) }}</td>
-            <td>{{ valueOrDefault(tariff.prices.wait) }}</td>
+            <td :class="colorize(provider, tariff, results)">
+              {{ valueOrDefault(tariff.includes.wait) }}
+            </td>
+            <td :class="colorize(provider, tariff, results)">
+              {{ formatCurrency(tariff.prices.wait) }}
+            </td>
 
             <td
               class="font-weight-bold"
-              :class="{
-                'light-green--text': isMininalRange(
-                  results[provider.id + ':' + tariff.id]
-                ),
-                'blue--text': isMininal(results[provider.id + ':' + tariff.id]),
-              }"
+              :class="colorize(provider, tariff, results)"
             >
-              {{ results[provider.id + ":" + tariff.id].toFixed(2) }}
+              {{ formatCurrency(results[provider.id + ":" + tariff.id]) }}
             </td>
           </tr>
         </tbody>
@@ -74,13 +85,24 @@ export default {
     valueOrDefault(value) {
       return !value || value === -1 ? "–" : value;
     },
-    isMininal(value) {
-      return value == this.results["$min"];
+    formatCurrency(value) {
+      if (value) {
+        return value.toFixed(2);
+      }
+      return this.valueOrDefault(value);
     },
-    isMininalRange(value) {
-      return (
-        value > this.results["$min"] && value <= this.results["$min"] * 1.1
-      );
+    colorize(provider, tariff, results) {
+      var result = results[provider.id + ":" + tariff.id];
+
+      if (result == results["$min"]) {
+        return ["green", "lighten-4"];
+      }
+
+      if (result == results[provider.id + ":$min"]) {
+        return ["light-blue", "lighten-5"];
+      }
+
+      return {};
     },
   },
 };

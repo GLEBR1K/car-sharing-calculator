@@ -47,10 +47,12 @@ export default {
   computed: {
     results() {
       var results = {};
-      var min = Number.MAX_VALUE;
+      var minAll = Number.MAX_VALUE;
 
       if (this.tariffs) {
         this.tariffs.providers.forEach((provider) => {
+          var minProvider = Number.MAX_VALUE;
+
           provider.tariffs.forEach((tariff) => {
             var price = tariff.prices.price || 0;
             var priceDuration = tariff.prices.duration || 0;
@@ -71,13 +73,18 @@ export default {
               Math.max(0, this.wait - includesWait) * priceWait;
 
             result = result || 0;
-            min = result < min ? result : min;
+
+            minAll = result < minAll ? result : minAll;
+            minProvider = result < minProvider ? result : minProvider;
+
             results[provider.id + ":" + tariff.id] = result;
           });
+
+          results[provider.id + ":$min"] = minProvider;
         });
       }
 
-      results["$min"] = min;
+      results["$min"] = minAll;
       return results;
     },
   },
