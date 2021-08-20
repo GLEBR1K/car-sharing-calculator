@@ -60,14 +60,19 @@ export default {
             var includesDistance = tariff.includes.distance || 0;
             var includesWait = tariff.includes.wait || 0;
 
+            if (includesWait === -1) {
+              includesWait = Math.max(0, includesDuration - this.duration);
+            }
+
             var result =
               price +
               Math.max(0, this.duration - includesDuration) * priceDuration +
               Math.max(0, this.distance - includesDistance) * priceDistance +
               Math.max(0, this.wait - includesWait) * priceWait;
 
+            result = result || 0;
             min = result < min ? result : min;
-            results[provider.id + ":" + tariff.id] = (result || 0).toFixed(2);
+            results[provider.id + ":" + tariff.id] = result;
           });
         });
       }

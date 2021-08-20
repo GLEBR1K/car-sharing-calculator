@@ -50,7 +50,7 @@
                 ),
               }"
             >
-              {{ results[provider.id + ":" + tariff.id] }}
+              {{ results[provider.id + ":" + tariff.id].toFixed(2) }}
             </td>
           </tr>
         </tbody>
@@ -71,10 +71,12 @@ export default {
   },
   methods: {
     valueOrDefault(value) {
-      return value || "–";
+      return !value || value === -1 ? "–" : value;
     },
     isMininalRange(value) {
-      return value <= this.results[":min"] * 1.2;
+      return (
+        value > this.results["$min"] && value <= this.results["$min"] * 1.1
+      );
     },
   },
 };
