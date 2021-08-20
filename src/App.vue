@@ -34,9 +34,9 @@ export default {
     Table,
   },
   data: () => ({
-    duration: 30,
-    distance: 30,
-    wait: 10,
+    duration: localStorage.getItem("duration") || 30,
+    distance: localStorage.getItem("distance") || 30,
+    wait: localStorage.getItem("wait") || 10,
     tariffs: null,
   }),
   mounted() {
@@ -90,7 +90,14 @@ export default {
   },
   methods: {
     onChange(key, value) {
-      this[key] = parseFloat(value) || null;
+      var parsed = parseFloat(value) || null;
+      this[key] = parsed;
+
+      if (parsed) {
+        localStorage.setItem(key, parsed);
+      } else {
+        localStorage.removeItem(key);
+      }
     },
   },
 };
