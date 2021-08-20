@@ -1,7 +1,7 @@
 <template>
   <v-row class="text-center" dence>
     <v-col>
-      <h1>Калькулятор</h1>
+      <h1>Каршеринг × Калькулятор</h1>
     </v-col>
   </v-row>
 </template>
