@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import vueConfig from "../vue.config";
 import Header from "./components/Header.vue";
 import Inputs from "./components/Inputs.vue";
 import Table from "./components/Table.vue";
@@ -39,8 +40,11 @@ export default {
     wait: localStorage.getItem("wait") || 10,
     tariffs: null,
   }),
+  created() {
+    this.PUBLIC_PATH = vueConfig.publicPath;
+  },
   mounted() {
-    fetch("/tariffs.json")
+    fetch(this.PUBLIC_PATH + "tariffs.json")
       .then((data) => data.json())
       .then((json) => (this.tariffs = json));
   },
