@@ -45,9 +45,10 @@
             <td
               class="font-weight-bold"
               :class="{
-                'green--text': isMininalRange(
+                'light-green--text': isMininalRange(
                   results[provider.id + ':' + tariff.id]
                 ),
+                'blue--text': isMininal(results[provider.id + ':' + tariff.id]),
               }"
             >
               {{ results[provider.id + ":" + tariff.id].toFixed(2) }}
@@ -72,6 +73,9 @@ export default {
   methods: {
     valueOrDefault(value) {
       return !value || value === -1 ? "–" : value;
+    },
+    isMininal(value) {
+      return value == this.results["$min"];
     },
     isMininalRange(value) {
       return (

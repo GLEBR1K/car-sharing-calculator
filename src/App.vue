@@ -77,7 +77,7 @@ export default {
         });
       }
 
-      results[":min"] = min;
+      results["$min"] = min;
       return results;
     },
   },
