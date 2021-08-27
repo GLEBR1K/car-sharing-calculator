@@ -1,94 +1,103 @@
 <template>
-  <v-row dense v-if="tariffs">
-    <v-col>
-      <v-simple-table dense>
-        <thead>
-          <tr>
-            <th>Тариф</th>
+  <v-row dense justify="center">
+    <v-col xl="8" lg="10">
+      <v-fade-transition>
+        <v-simple-table dense v-if="tariffs">
+          <thead>
+            <tr>
+              <th>Тариф</th>
 
-            <th class="border-left">Цена</th>
+              <th class="border-left">Цена</th>
 
-            <th class="border-left">Время</th>
-            <th>руб./мин.</th>
+              <th class="border-left">Время</th>
+              <th>руб./мин.</th>
 
-            <th class="border-left">Расстояние</th>
-            <th>руб./км.</th>
+              <th class="border-left">Расстояние</th>
+              <th>руб./км.</th>
 
-            <th class="border-left">Ожидание</th>
-            <th>руб./мин.</th>
+              <th class="border-left">Ожидание</th>
+              <th>руб./мин.</th>
 
-            <th class="border-left">Сумма</th>
-          </tr>
-        </thead>
+              <th class="border-left">Сумма</th>
+            </tr>
+          </thead>
 
-        <tbody v-for="provider in tariffs.providers" :key="provider.id">
-          <tr>
-            <td colspan="9" class="provider-row">
-              <img :src="PUBLIC_PATH + provider.image" width="12" height="12" />
-              <span class="font-weight-black">{{ provider.name }}</span>
-              <span v-if="provider.website">
-                •
-                <a
-                  class="text-decoration-none"
-                  :href="provider.website.url"
-                  target="_blank"
-                  >{{ provider.website.title }}</a
-                >
-              </span>
-            </td>
-          </tr>
+          <tbody v-for="provider in tariffs.providers" :key="provider.id">
+            <tr>
+              <td colspan="9" class="provider-row">
+                <img
+                  :src="PUBLIC_PATH + provider.image"
+                  width="12"
+                  height="12"
+                />
+                <span class="font-weight-black">{{ provider.name }}</span>
+                <span v-if="provider.website">
+                  •
+                  <a
+                    class="text-decoration-none"
+                    :href="provider.website.url"
+                    target="_blank"
+                    >{{ provider.website.title }}</a
+                  >
+                </span>
+              </td>
+            </tr>
 
-          <tr v-for="tariff in provider.tariffs" :key="tariff.id">
-            <td :class="colorize(provider, tariff, results)">
-              {{ tariff.name }}
-            </td>
+            <tr v-for="tariff in provider.tariffs" :key="tariff.id">
+              <td>
+                {{ tariff.name }}
+                <v-scroll-x-transition leave-absolute>
+                  <v-badge
+                    dot
+                    inline
+                    color="blue"
+                    v-if="isMinByProvider(provider, tariff, results)"
+                  >
+                  </v-badge>
+                </v-scroll-x-transition>
+                <v-scroll-x-transition leave-absolute>
+                  <v-badge
+                    dot
+                    inline
+                    color="green"
+                    v-if="isMinTotal(provider, tariff, results)"
+                  >
+                  </v-badge>
+                </v-scroll-x-transition>
+              </td>
 
-            <td
-              class="border-left"
-              :class="colorize(provider, tariff, results)"
-            >
-              {{ formatCurrency(tariff.prices.price) }}
-            </td>
+              <td class="border-left">
+                {{ formatCurrency(tariff.prices.price) }}
+              </td>
 
-            <td
-              class="border-left"
-              :class="colorize(provider, tariff, results)"
-            >
-              {{ valueOrDefault(tariff.includes.duration) }}
-            </td>
-            <td :class="colorize(provider, tariff, results)">
-              {{ formatCurrency(tariff.prices.duration) }}
-            </td>
+              <td class="border-left">
+                {{ valueOrDefault(tariff.includes.duration) }}
+              </td>
+              <td>
+                {{ formatCurrency(tariff.prices.duration) }}
+              </td>
 
-            <td
-              class="border-left"
-              :class="colorize(provider, tariff, results)"
-            >
-              {{ valueOrDefault(tariff.includes.distance) }}
-            </td>
-            <td :class="colorize(provider, tariff, results)">
-              {{ formatCurrency(tariff.prices.distance) }}
-            </td>
+              <td class="border-left">
+                {{ valueOrDefault(tariff.includes.distance) }}
+              </td>
+              <td>
+                {{ formatCurrency(tariff.prices.distance) }}
+              </td>
 
-            <td
-              class="border-left"
-              :class="colorize(provider, tariff, results)"
-            >
-              {{ valueOrDefault(tariff.includes.wait) }}
-            </td>
-            <td :class="colorize(provider, tariff, results)">
-              {{ formatCurrency(tariff.prices.wait) }}
-            </td>
+              <td class="border-left">
+                {{ valueOrDefault(tariff.includes.wait) }}
+              </td>
+              <td>
+                {{ formatCurrency(tariff.prices.wait) }}
+              </td>
 
-            <td
-              class="border-left font-weight-bold"
-              :class="colorize(provider, tariff, results)"
-            >
-              {{ formatCurrency(results[provider.id + ":" + tariff.id]) }}
-            </td>
-          </tr>
-        </tbody>
-      </v-simple-table>
+              <td class="border-left font-weight-bold">
+                {{ formatCurrency(results[provider.id + ":" + tariff.id]) }}
+              </td>
+            </tr>
+          </tbody>
+        </v-simple-table>
+      </v-fade-transition>
     </v-col>
   </v-row>
 </template>
@@ -118,22 +127,20 @@ export default {
       }
       return this.valueOrDefault(value);
     },
-    colorize(provider, tariff, results) {
-      var result = results[provider.id + ":" + tariff.id];
-
-      if (result == 0) {
-        return;
+    getResult(provider, tariff) {
+      return this.results[provider.id + ":" + tariff.id];
+    },
+    getMin(provider) {
+      if (provider) {
+        return this.results[provider.id + ":$min"];
       }
-
-      if (result == results["$min"]) {
-        return ["green", "lighten-5"];
-      }
-
-      if (result == results[provider.id + ":$min"]) {
-        return ["light-blue", "lighten-5"];
-      }
-
-      return;
+      return this.results["$min"];
+    },
+    isMinTotal(provider, tariff) {
+      return this.getResult(provider, tariff) == this.getMin();
+    },
+    isMinByProvider(provider, tariff) {
+      return this.getResult(provider, tariff) == this.getMin(provider);
     },
   },
 };
