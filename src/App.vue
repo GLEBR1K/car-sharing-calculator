@@ -34,12 +34,25 @@ export default {
     Inputs,
     Table,
   },
-  data: () => ({
-    duration: localStorage.getItem("duration") || 30,
-    distance: localStorage.getItem("distance") || 30,
-    wait: localStorage.getItem("wait") || 10,
-    tariffs: null,
-  }),
+  data: () => {
+    const urlParams = new URLSearchParams(window.location.search);
+
+    return {
+      duration:
+        parseInt(urlParams.get("duration")) ||
+        parseInt(localStorage.getItem("duration")) ||
+        30,
+      distance:
+        parseInt(urlParams.get("distance")) ||
+        parseInt(localStorage.getItem("distance")) ||
+        30,
+      wait:
+        parseInt(urlParams.get("wait")) ||
+        parseInt(localStorage.getItem("wait")) ||
+        10,
+      tariffs: null,
+    };
+  },
   created() {
     this.PUBLIC_PATH = vueConfig.publicPath;
   },
