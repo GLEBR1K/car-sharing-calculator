@@ -4,7 +4,7 @@
       <v-form>
         <v-container>
           <v-row class="justify-center">
-            <v-col cols="12" md="2">
+            <v-col xl="1" lg="2" md="2" sm="3" cols="12">
               <v-text-field
                 :value="duration"
                 @keyup="$emit('change', 'duration', $event.target.value)"
@@ -15,7 +15,7 @@
               ></v-text-field>
             </v-col>
 
-            <v-col cols="12" md="2">
+            <v-col xl="1" lg="2" md="2" sm="3" cols="12">
               <v-text-field
                 :value="distance"
                 @keyup="$emit('change', 'distance', $event.target.value)"
@@ -26,7 +26,7 @@
               ></v-text-field>
             </v-col>
 
-            <v-col cols="12" md="2">
+            <v-col xl="1" lg="2" md="2" sm="3" cols="12">
               <v-text-field
                 :value="wait"
                 @keyup="$emit('change', 'wait', $event.target.value)"
