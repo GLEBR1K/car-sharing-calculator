@@ -45,22 +45,29 @@
 
             <tr v-for="tariff in provider.tariffs" :key="tariff.id">
               <td>
-                {{ tariff.name }}
-                <v-scroll-x-transition leave-absolute>
-                  <v-badge
-                    dot
-                    inline
-                    color="blue"
-                    v-if="isMinByProvider(provider, tariff, results)"
-                  >
-                  </v-badge>
-                </v-scroll-x-transition>
+                <span
+                  :class="
+                    isMinTotal(provider, tariff, results)
+                      ? ['font-weight-medium', 'green--text']
+                      : isMinByProvider(provider, tariff, results)
+                      ? ['font-weight-medium', 'blue--text']
+                      : []
+                  "
+                  >{{ tariff.name }}
+                </span>
                 <v-scroll-x-transition leave-absolute>
                   <v-badge
                     dot
                     inline
                     color="green"
                     v-if="isMinTotal(provider, tariff, results)"
+                  >
+                  </v-badge>
+                  <v-badge
+                    dot
+                    inline
+                    color="blue"
+                    v-else-if="isMinByProvider(provider, tariff, results)"
                   >
                   </v-badge>
                 </v-scroll-x-transition>
