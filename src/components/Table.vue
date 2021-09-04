@@ -7,6 +7,8 @@
             <tr>
               <th>Тариф</th>
 
+              <th>Сумма</th>
+
               <th class="border-left">Цена</th>
 
               <th class="border-left">Время</th>
@@ -17,8 +19,6 @@
 
               <th class="border-left">Ожидание</th>
               <th>руб./мин.</th>
-
-              <th class="border-left">Сумма</th>
             </tr>
           </thead>
 
@@ -54,6 +54,21 @@
                       : []
                   "
                   >{{ tariff.name }}
+                </span>
+              </td>
+
+              <td class="font-weight-bold">
+                <span
+                  :class="
+                    isMinTotal(provider, tariff, results)
+                      ? ['font-weight-medium', 'green--text']
+                      : isMinByProvider(provider, tariff, results)
+                      ? ['font-weight-medium', 'blue--text']
+                      : []
+                  "
+                >
+                  =
+                  {{ formatCurrency(results[provider.id + ":" + tariff.id]) }}
                 </span>
                 <v-scroll-x-transition leave-absolute>
                   <v-badge
@@ -96,10 +111,6 @@
               </td>
               <td>
                 {{ formatCurrency(tariff.prices.wait) }}
-              </td>
-
-              <td class="border-left font-weight-bold">
-                {{ formatCurrency(results[provider.id + ":" + tariff.id]) }}
               </td>
             </tr>
           </tbody>
