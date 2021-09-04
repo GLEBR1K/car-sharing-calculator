@@ -156,7 +156,6 @@ export default {
 <style lang="scss" scoped>
 @import "~vuetify/src/styles/styles.sass";
 thead tr th {
-  border-top: thin solid map-get($material-light, "dividers");
   border-bottom: none !important;
 }
 .provider-row {
