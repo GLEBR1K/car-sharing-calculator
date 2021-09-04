@@ -44,26 +44,26 @@
             </tr>
 
             <tr v-for="tariff in provider.tariffs" :key="tariff.id">
-              <td>
+              <td class="nowrap">
                 <span
                   :class="
                     isMinTotal(provider, tariff, results)
-                      ? ['font-weight-medium', 'green--text']
+                      ? ['font-weight-bold', 'green--text']
                       : isMinByProvider(provider, tariff, results)
-                      ? ['font-weight-medium', 'blue--text']
+                      ? ['font-weight-bold', 'blue--text']
                       : []
                   "
                   >{{ tariff.name }}
                 </span>
               </td>
 
-              <td class="font-weight-bold">
+              <td class="nowrap">
                 <span
                   :class="
                     isMinTotal(provider, tariff, results)
-                      ? ['font-weight-medium', 'green--text']
+                      ? ['font-weight-bold', 'green--text']
                       : isMinByProvider(provider, tariff, results)
-                      ? ['font-weight-medium', 'blue--text']
+                      ? ['font-weight-bold', 'blue--text']
                       : []
                   "
                 >
@@ -166,17 +166,77 @@ export default {
 
 <style lang="scss" scoped>
 @import "~vuetify/src/styles/styles.sass";
-thead tr th {
-  border-bottom: none !important;
-}
-.provider-row {
-  border-top: thin solid map-get($material-light, "dividers");
 
-  img {
-    margin-right: 5px;
+$border-thin-solid-light: thin solid map-get($material-light, "dividers");
+$border-thin-dased-light: thin dashed map-get($material-light, "dividers");
+$border-thin-solid-dark: thin solid map-get($material-dark, "dividers");
+$border-thin-dased-dark: thin dashed map-get($material-dark, "dividers");
+
+.theme--light {
+  th {
+    border-top: $border-thin-solid-light;
+  }
+  th:first-child,
+  td:first-child {
+    border-left: $border-thin-solid-light;
+  }
+  th:last-child,
+  td:last-child {
+    border-right: $border-thin-solid-light;
+  }
+  tbody:last-child td {
+    border-bottom: $border-thin-solid-light;
+  }
+
+  .border-left {
+    border-left: $border-thin-dased-light;
+  }
+
+  tbody:first-of-type .provider-row {
+    border-top: none;
+  }
+  tbody .provider-row {
+    border-top: $border-thin-solid-light;
   }
 }
-.border-left {
-  border-left: thin solid map-get($material-light, "dividers");
+
+.theme--dark {
+  th {
+    border-top: $border-thin-solid-dark;
+  }
+  th:first-child,
+  td:first-child {
+    border-left: $border-thin-solid-dark;
+  }
+  th:last-child,
+  td:last-child {
+    border-right: $border-thin-solid-dark;
+  }
+  tbody:last-child td {
+    border-bottom: $border-thin-solid-dark;
+  }
+
+  .border-left {
+    border-left: $border-thin-dased-dark;
+  }
+
+  tbody:first-of-type .provider-row {
+    border-top: none;
+  }
+  tbody .provider-row {
+    border-top: $border-thin-solid-dark;
+  }
+}
+
+tr:hover {
+  background: none !important;
+}
+
+.provider-row img {
+  margin-right: 5px;
+}
+
+.nowrap {
+  white-space: nowrap;
 }
 </style>

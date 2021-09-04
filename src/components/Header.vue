@@ -1,7 +1,13 @@
 <template>
   <v-row class="text-center" dence>
     <v-col>
-      <h1>Каршеринг × Калькулятор</h1>
+      <div class="text-h5 font-weight-bold">
+        Каршеринг
+        <br class="d-block d-sm-none" />
+        ×
+        <br class="d-block d-sm-none" />
+        Калькулятор
+      </div>
     </v-col>
   </v-row>
 </template>
@@ -11,3 +17,9 @@ export default {
   name: "Header",
 };
 </script>
+
+<style lang="scss" scoped>
+div {
+  line-height: 20px;
+}
+</style>

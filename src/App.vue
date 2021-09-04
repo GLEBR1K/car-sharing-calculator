@@ -2,6 +2,7 @@
   <v-app>
     <v-main>
       <v-container>
+        <Theme />
         <Header />
         <Inputs
           :duration="duration"
@@ -26,6 +27,7 @@ import vueConfig from "../vue.config";
 import Header from "./components/Header.vue";
 import Inputs from "./components/Inputs.vue";
 import Table from "./components/Table.vue";
+import Theme from "./components/Theme.vue";
 
 export default {
   name: "App",
@@ -33,6 +35,7 @@ export default {
     Header,
     Inputs,
     Table,
+    Theme,
   },
   data: () => {
     const urlParams = new URLSearchParams(window.location.search);
