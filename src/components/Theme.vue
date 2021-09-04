@@ -1,5 +1,5 @@
 <template>
-  <v-btn id="theme-toggle" icon plain @click="dark = !dark">
+  <v-btn icon plain @click="dark = !dark">
     <v-icon>mdi-brightness-6</v-icon>
   </v-btn>
 </template>
@@ -31,11 +31,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-#theme-toggle {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-</style>

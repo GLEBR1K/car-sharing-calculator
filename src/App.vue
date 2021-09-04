@@ -2,7 +2,7 @@
   <v-app>
     <v-main>
       <v-container>
-        <Theme />
+        <Toolbar :duration="duration" :distance="distance" :wait="wait" />
         <Header />
         <Inputs
           :duration="duration"
@@ -27,7 +27,7 @@ import vueConfig from "../vue.config";
 import Header from "./components/Header.vue";
 import Inputs from "./components/Inputs.vue";
 import Table from "./components/Table.vue";
-import Theme from "./components/Theme.vue";
+import Toolbar from "./components/Toolbar.vue";
 
 export default {
   name: "App",
@@ -35,7 +35,7 @@ export default {
     Header,
     Inputs,
     Table,
-    Theme,
+    Toolbar,
   },
   data: () => {
     const urlParams = new URLSearchParams(window.location.search);
