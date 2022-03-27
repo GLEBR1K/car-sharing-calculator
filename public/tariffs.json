@@ -14,9 +14,9 @@
           "name": "Минутный",
           "prices": {
             "price": 0.00,
-            "duration": 0.34,
+            "duration": 0.48,
             "distance": 0.00,
-            "wait": 0.07
+            "wait": 0.10
           },
           "includes": {
             "duration": 0,
@@ -28,10 +28,10 @@
           "id": "1+0.5h",
           "name": "1+0.5 часа",
           "prices": {
-            "price": 20.70,
-            "duration": 0.34,
+            "price": 28.50,
+            "duration": 0.46,
             "distance": 0.00,
-            "wait": 0.11
+            "wait": 0.17
           },
           "includes": {
             "duration": 60,
@@ -43,10 +43,10 @@
           "id": "1+2h",
           "name": "1+2 часа",
           "prices": {
-            "price": 25.20,
-            "duration": 0.34,
+            "price": 36.00,
+            "duration": 0.46,
             "distance": 0.00,
-            "wait": 0.11
+            "wait": 0.17
           },
           "includes": {
             "duration": 60,
@@ -58,10 +58,10 @@
           "id": "2+4h",
           "name": "2+4 часа",
           "prices": {
-            "price": 49.20,
-            "duration": 0.34,
+            "price": 69.60,
+            "duration": 0.46,
             "distance": 0.00,
-            "wait": 0.11
+            "wait": 0.17
           },
           "includes": {
             "duration": 120,
@@ -73,10 +73,10 @@
           "id": "3+6h",
           "name": "3+6 часа",
           "prices": {
-            "price": 72.00,
-            "duration": 0.34,
+            "price": 102.50,
+            "duration": 0.46,
             "distance": 0.00,
-            "wait": 0.11
+            "wait": 0.17
           },
           "includes": {
             "duration": 180,
@@ -85,12 +85,12 @@
           }
         },
         {
-          "id": "30/24",
-          "name": "30BYN/24Ч",
+          "id": "35/24",
+          "name": "35BYN/24Ч",
           "prices": {
-            "price": 30.00,
+            "price": 35.00,
             "duration": 0.15,
-            "distance": 0.29,
+            "distance": 0.40,
             "wait": 0.15
           },
           "includes": {
@@ -103,10 +103,10 @@
           "id": "3d",
           "name": "3 дня",
           "prices": {
-            "price": 17.08,
-            "duration": 0.34,
+            "price": 24.18,
+            "duration": 0.46,
             "distance": 0.00,
-            "wait": 0.11
+            "wait": 0.17
           },
           "includes": {
             "duration": 50,
@@ -118,10 +118,10 @@
           "id": "30d",
           "name": "30 дней",
           "prices": {
-            "price": 96.48,
-            "duration": 0.34,
+            "price": 133.08,
+            "duration": 0.46,
             "distance": 0.00,
-            "wait": 0.11
+            "wait": 0.17
           },
           "includes": {
             "duration": 300,
@@ -133,10 +133,10 @@
           "id": "30d.ultra",
           "name": "30 дней Ultra",
           "prices": {
-            "price": 186.96,
-            "duration": 0.34,
+            "price": 260.16,
+            "duration": 0.46,
             "distance": 0.00,
-            "wait": 0.11
+            "wait": 0.17
           },
           "includes": {
             "duration": 600,
@@ -160,9 +160,9 @@
           "name": "Минутный",
           "prices": {
             "price": 0.00,
-            "duration": 0.35,
-            "distance": 0.00,
-            "wait": 0.08
+            "duration": 0.25,
+            "distance": 0.37,
+            "wait": 0.25
           },
           "includes": {
             "duration": 0,
@@ -171,77 +171,17 @@
           }
         },
         {
-          "id": "30min",
-          "name": "30 минут",
-          "prices": {
-            "price": 3.90,
-            "duration": 0.35,
-            "distance": 0.29,
-            "wait": 0.10
-          },
-          "includes": {
-            "duration": 30,
-            "distance": 0,
-            "wait": -1
-          }
-        },
-        {
-          "id": "60min",
-          "name": "60 минут",
-          "prices": {
-            "price": 6.90,
-            "duration": 0.35,
-            "distance": 0.29,
-            "wait": 0.10
-          },
-          "includes": {
-            "duration": 60,
-            "distance": 0,
-            "wait": -1
-          }
-        },
-        {
-          "id": "120min",
-          "name": "120 минут",
-          "prices": {
-            "price": 12.90,
-            "duration": 0.35,
-            "distance": 0.29,
-            "wait": 0.10
-          },
-          "includes": {
-            "duration": 120,
-            "distance": 0,
-            "wait": -1
-          }
-        },
-        {
           "id": "3h",
           "name": "3 часа",
           "prices": {
-            "price": 22.00,
-            "duration": 0.35,
-            "distance": 0.29,
-            "wait": 0.10
+            "price": 19.00,
+            "duration": 0.25,
+            "distance": 0.37,
+            "wait": 0.25
           },
           "includes": {
             "duration": 180,
-            "distance": 35,
-            "wait": -1
-          }
-        },
-        {
-          "id": "4h",
-          "name": "4 часа",
-          "prices": {
-            "price": 29.00,
-            "duration": 0.35,
-            "distance": 0.29,
-            "wait": 0.10
-          },
-          "includes": {
-            "duration": 240,
-            "distance": 70,
+            "distance": 0,
             "wait": -1
           }
         },
@@ -249,14 +189,14 @@
           "id": "6h",
           "name": "6 часов",
           "prices": {
-            "price": 32.00,
-            "duration": 0.35,
-            "distance": 0.29,
-            "wait": 0.10
+            "price": 29.00,
+            "duration": 0.25,
+            "distance": 0.37,
+            "wait": 0.25
           },
           "includes": {
             "duration": 360,
-            "distance": 55,
+            "distance": 0,
             "wait": -1
           }
         },
@@ -265,43 +205,13 @@
           "name": "9 часов",
           "prices": {
             "price": 39.00,
-            "duration": 0.35,
-            "distance": 0.29,
-            "wait": 0.10
+            "duration": 0.25,
+            "distance": 0.37,
+            "wait": 0.25
           },
           "includes": {
             "duration": 540,
-            "distance": 70,
-            "wait": -1
-          }
-        },
-        {
-          "id": "12h",
-          "name": "12 часов",
-          "prices": {
-            "price": 47.00,
-            "duration": 0.35,
-            "distance": 0.29,
-            "wait": 0.10
-          },
-          "includes": {
-            "duration": 720,
-            "distance": 85,
-            "wait": -1
-          }
-        },
-        {
-          "id": "25h",
-          "name": "25 часов",
-          "prices": {
-            "price": 57.00,
-            "duration": 0.35,
-            "distance": 0.29,
-            "wait": 0.10
-          },
-          "includes": {
-            "duration": 1500,
-            "distance": 110,
+            "distance": 0,
             "wait": -1
           }
         },
@@ -309,10 +219,10 @@
           "id": "1d",
           "name": "1 день",
           "prices": {
-            "price": 39.00,
-            "duration": 0.35,
-            "distance": 0.27,
-            "wait": 0.10
+            "price": 59.00,
+            "duration": 0.25,
+            "distance": 0.37,
+            "wait": 0.25
           },
           "includes": {
             "duration": 1440,
@@ -324,10 +234,10 @@
           "id": "2d",
           "name": "2 дня",
           "prices": {
-            "price": 76.00,
-            "duration": 0.35,
-            "distance": 0.27,
-            "wait": 0.10
+            "price": 118.00,
+            "duration": 0.25,
+            "distance": 0.37,
+            "wait": 0.25
           },
           "includes": {
             "duration": 2880,
@@ -339,234 +249,13 @@
           "id": "3d",
           "name": "3 дня",
           "prices": {
-            "price": 115.00,
-            "duration": 0.35,
-            "distance": 0.27,
-            "wait": 0.10
+            "price": 177.00,
+            "duration": 0.25,
+            "distance": 0.37,
+            "wait": 0.25
           },
           "includes": {
             "duration": 4320,
-            "distance": 0,
-            "wait": -1
-          }
-        },
-        {
-          "id": "5d",
-          "name": "5 дней",
-          "prices": {
-            "price": 165.00,
-            "duration": 0.35,
-            "distance": 0.27,
-            "wait": 0.10
-          },
-          "includes": {
-            "duration": 7200,
-            "distance": 0,
-            "wait": -1
-          }
-        },
-        {
-          "id": "7d",
-          "name": "7 дней",
-          "prices": {
-            "price": 229.00,
-            "duration": 0.35,
-            "distance": 0.27,
-            "wait": 0.10
-          },
-          "includes": {
-            "duration": 10080,
-            "distance": 0,
-            "wait": -1
-          }
-        },
-        {
-          "id": "10d",
-          "name": "10 дней",
-          "prices": {
-            "price": 315.00,
-            "duration": 0.35,
-            "distance": 0.27,
-            "wait": 0.10
-          },
-          "includes": {
-            "duration": 14400,
-            "distance": 0,
-            "wait": -1
-          }
-        },
-        {
-          "id": "14d",
-          "name": "14 дней",
-          "prices": {
-            "price": 429.00,
-            "duration": 0.35,
-            "distance": 0.27,
-            "wait": 0.10
-          },
-          "includes": {
-            "duration": 20160,
-            "distance": 0,
-            "wait": -1
-          }
-        }
-      ]
-    },
-    {
-      "id": "vezuha",
-      "name": "Везуха",
-      "website": {
-        "title": "vezuha.club",
-        "url": "https://vezuha.club/"
-      },
-      "image": "vezuha.png",
-      "tariffs": [
-        {
-          "id": "min",
-          "name": "Минутный",
-          "prices": {
-            "price": 0.00,
-            "duration": 0.17,
-            "distance": 0.32,
-            "wait": 0.17
-          },
-          "includes": {
-            "duration": 0,
-            "distance": 0,
-            "wait": 0
-          }
-        },
-        {
-          "id": "min.v",
-          "name": "Везунчики",
-          "prices": {
-            "price": 0.00,
-            "duration": 0.16,
-            "distance": 0.31,
-            "wait": 0.16
-          },
-          "includes": {
-            "duration": 0,
-            "distance": 0,
-            "wait": 0
-          }
-        },
-        {
-          "id": "min.sv",
-          "name": "Супервезунчики",
-          "prices": {
-            "price": 0.00,
-            "duration": 0.15,
-            "distance": 0.31,
-            "wait": 0.15
-          },
-          "includes": {
-            "duration": 0,
-            "distance": 0,
-            "wait": 0
-          }
-        },
-        {
-          "id": "70min",
-          "name": "70 минут + 20 км",
-          "prices": {
-            "price": 14.90,
-            "duration": 0.17,
-            "distance": 0.30,
-            "wait": 0.17
-          },
-          "includes": {
-            "duration": 70,
-            "distance": 20,
-            "wait": -1
-          }
-        },
-        {
-          "id": "3h",
-          "name": "3 часа + 40 км",
-          "prices": {
-            "price": 24.90,
-            "duration": 0.17,
-            "distance": 0.30,
-            "wait": 0.17
-          },
-          "includes": {
-            "duration": 180,
-            "distance": 40,
-            "wait": -1
-          }
-        },
-        {
-          "id": "6h",
-          "name": "6 часов + 65 км",
-          "prices": {
-            "price": 38.90,
-            "duration": 0.17,
-            "distance": 0.30,
-            "wait": 0.17
-          },
-          "includes": {
-            "duration": 360,
-            "distance": 65,
-            "wait": -1
-          }
-        },
-        {
-          "id": "12h",
-          "name": "12 часов + 90 км",
-          "prices": {
-            "price": 51.90,
-            "duration": 0.17,
-            "distance": 0.30,
-            "wait": 0.17
-          },
-          "includes": {
-            "duration": 720,
-            "distance": 90,
-            "wait": -1
-          }
-        },
-        {
-          "id": "1d",
-          "name": "Сутки + 130 км",
-          "prices": {
-            "price": 66.00,
-            "duration": 0.17,
-            "distance": 0.30,
-            "wait": 0.17
-          },
-          "includes": {
-            "duration": 1440,
-            "distance": 130,
-            "wait": -1
-          }
-        },
-        {
-          "id": "50h",
-          "name": "50 часов",
-          "prices": {
-            "price": 90.00,
-            "duration": 0.17,
-            "distance": 0.27,
-            "wait": 0.17
-          },
-          "includes": {
-            "duration": 3000,
-            "distance": 0,
-            "wait": -1
-          }
-        },
-        {
-          "id": "7d",
-          "name": "7 дней",
-          "prices": {
-            "price": 269.00,
-            "duration": 0.17,
-            "distance": 0.27,
-            "wait": 0.17
-          },
-          "includes": {
-            "duration": 10080,
             "distance": 0,
             "wait": -1
           }
@@ -583,13 +272,13 @@
       "image": "multik.png",
       "tariffs": [
         {
-          "id": "min",
-          "name": "Минутный",
+          "id": "min/km",
+          "name": "Минуты и километры",
           "prices": {
             "price": 0.00,
-            "duration": 0.17,
-            "distance": 0.32,
-            "wait": 0.17
+            "duration": 0.24,
+            "distance": 0.38,
+            "wait": 0.24
           },
           "includes": {
             "duration": 0,
@@ -597,14 +286,29 @@
             "wait": 0
           }
         },
+	{
+          "id": "25min",
+          "name": "25 минут + 25 км",
+          "prices": {
+            "price": 11.50,
+            "duration": 0.24,
+            "distance": 0.37,
+            "wait": 0.24
+          },
+          "includes": {
+            "duration": 25,
+            "distance": 25,
+            "wait": -1
+          }
+        },
         {
           "id": "70min",
           "name": "70 минут + 20 км",
           "prices": {
-            "price": 14.90,
-            "duration": 0.17,
-            "distance": 0.30,
-            "wait": 0.17
+            "price": 19.00,
+            "duration": 0.24,
+            "distance": 0.37,
+            "wait": 0.24
           },
           "includes": {
             "duration": 70,
@@ -616,10 +320,10 @@
           "id": "3h",
           "name": "3 часа + 40 км",
           "prices": {
-            "price": 24.90,
-            "duration": 0.17,
-            "distance": 0.30,
-            "wait": 0.17
+            "price": 32.00,
+            "duration": 0.24,
+            "distance": 0.37,
+            "wait": 0.24
           },
           "includes": {
             "duration": 180,
@@ -631,10 +335,10 @@
           "id": "6h",
           "name": "6 часов + 65 км",
           "prices": {
-            "price": 38.90,
-            "duration": 0.17,
-            "distance": 0.30,
-            "wait": 0.17
+            "price": 49.00,
+            "duration": 0.24,
+            "distance": 0.37,
+            "wait": 0.24
           },
           "includes": {
             "duration": 360,
@@ -646,10 +350,10 @@
           "id": "12h",
           "name": "12 часов + 90 км",
           "prices": {
-            "price": 51.90,
-            "duration": 0.17,
-            "distance": 0.30,
-            "wait": 0.17
+            "price": 65.00,
+            "duration": 0.24,
+            "distance": 0.37,
+            "wait": 0.24
           },
           "includes": {
             "duration": 720,
@@ -661,10 +365,10 @@
           "id": "1d",
           "name": "Сутки + 130 км",
           "prices": {
-            "price": 66.00,
-            "duration": 0.17,
-            "distance": 0.30,
-            "wait": 0.17
+            "price": 85.00,
+            "duration": 0.24,
+            "distance": 0.36,
+            "wait": 0.24
           },
           "includes": {
             "duration": 1440,
@@ -676,10 +380,10 @@
           "id": "50h",
           "name": "50 часов",
           "prices": {
-            "price": 90.00,
-            "duration": 0.17,
-            "distance": 0.27,
-            "wait": 0.17
+            "price": 110.00,
+            "duration": 0.24,
+            "distance": 0.36,
+            "wait": 0.24
           },
           "includes": {
             "duration": 3000,
@@ -691,10 +395,10 @@
           "id": "7d",
           "name": "7 дней",
           "prices": {
-            "price": 269.00,
-            "duration": 0.17,
-            "distance": 0.27,
-            "wait": 0.17
+            "price": 299.00,
+            "duration": 0.24,
+            "distance": 0.36,
+            "wait": 0.24
           },
           "includes": {
             "duration": 10080,
